@@ -1,0 +1,48 @@
+<h2>Cart:</h2>
+
+<div class="cart">
+  <div class="cart-items" *ngIf="items.length !== 0; else elseBlock">
+    <div class="cart-item" *ngFor="let item of items">
+      <span [routerLink]="['/products', item._id]" class="product-name">{{
+        item.name
+      }}</span>
+      <span>
+        <span
+          ><b>{{ item.price | currency: "USD" }}</b></span
+        >
+        <button class="button-red" (click)="deleteProduct(item._id)">
+          &times;
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="total-price" *ngIf="items.length !== 0">
+    <div>
+      <h2><b>Total Price: </b>{{ totalPrice | currency: "USD" }}</h2>
+      <div>
+        <div>
+          <label for="name"> Name </label>
+          <input
+            type="text"
+            [value]="clientName"
+            #inputNam
+            (input)="inputName(inputNam.value)"
+          />
+        </div>
+
+        <div>
+          <label for="address"> Address </label>
+          <input
+            type="text"
+            [value]="clientAddress"
+            #inputAdd
+            (input)="inputAdress(inputAdd.value)"
+          />
+        </div>
+
+        <button class="button" (click)="onSubmit()">Purchase</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock> No products in the Cart yet...</ng-template>

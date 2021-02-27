@@ -1,0 +1,32 @@
+.img {
+  max-width: 500px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.info {
+  flex: 0 1 30%;
+  font-size: 24px;
+  margin: 0px 10px;
+}
+
+.brand {
+  margin: 20px 0px;
+}
+
+.price {
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 20px;
+}
