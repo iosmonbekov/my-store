@@ -1,8 +1,8 @@
-<div class="products">
+<div class="products" *ngIf="!isLoading">
   <div class="product" *ngFor="let product of products">
     <a
       [title]="product.name + ' details'"
-      [routerLink]="['/products', product._id]"
+      [routerLink]="['/products', product.id]"
     >
       <div class="img">
         <img [src]="product.image" alt="image" />
@@ -11,5 +11,22 @@
     <div class="name">{{ product.name }}</div>
     <div class="brand">{{ product.brand }}</div>
     <div class="price">{{ product.price | currency: "USD" }}</div>
+  </div>
+</div>
+
+<div class="loader" *ngIf="isLoading">
+  <div class="lds-spinner">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </div>

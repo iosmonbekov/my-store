@@ -41,4 +41,11 @@ export class CartService {
   }
 
   constructor(private http: HttpClient) {}
+
+  postClientOrder(order: any) {
+    return this.http.post(
+      'https://my-store-9091b-default-rtdb.firebaseio.com/orders.json',
+      order
+    );
+  }
 }

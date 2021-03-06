@@ -11,27 +11,27 @@ export class CartComponent implements OnInit {
 
   totalPrice = this.cartService.getTotalCount();
 
+  clientName = '';
+
+  clientAddress = '';
+
+  constructor(private cartService: CartService) {}
+
   deleteProduct(id: number) {
     this.cartService.deleteProduct(id);
     this.totalPrice = this.cartService.getTotalCount();
   }
-
-  clientName = '';
-  inputName(value: string) {
-    this.clientName = value;
-  }
-  clientAddress = '';
-  inputAdress(value: string) {
-    this.clientAddress = value;
-  }
-
   onSubmit(): void {
+    const order = {
+      name: this.clientName,
+      address: this.clientAddress,
+      totalPrice: this.totalPrice,
+      products: this.items,
+    };
+    this.cartService.postClientOrder(order).subscribe((data) => {});
     this.items = this.cartService.clearCart();
     alert('Your order has been submitted.');
-    console.log('name: ', this.clientName, 'Adress: ', this.clientAddress);
   }
-
-  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
 }
