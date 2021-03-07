@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="client">
+    <h2>Client Data:</h2>
+    <ul>
+      <li><b>Name: </b>{{ details.name }}</li>
+      <li><b>Address: </b>{{ details.address }}</li>
+    </ul>
+  </div>
+  <div class="products">
+    <h2>Products List:</h2>
+    <ul class="products-list">
+      <li *ngFor="let product of details.products; let i = index">
+        <span>{{ i + 1 }}. {{ product.name }}</span>
+        <b>{{ product.price | currency: "USD" }}</b>
+      </li>
+      <li class="total-price">
+        Total Price: <b>{{ details.totalPrice | currency: "USD" }}</b>
+      </li>
+    </ul>
+  </div>
+</div>

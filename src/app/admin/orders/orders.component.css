@@ -1,0 +1,20 @@
+.orders {
+  max-width: 700px;
+  margin: 0 auto;
+}
+ol {
+  padding: 0;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin: 0px 0px 15px;
+  padding: 10px 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+}
+li > span {
+  flex: 0 1 50%;
+}

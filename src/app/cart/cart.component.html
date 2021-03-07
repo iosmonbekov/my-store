@@ -22,17 +22,30 @@
       <form>
         <div>
           <label for="name"> Name </label>
-          <input type="text" name="name" [(ngModel)]="clientName" />
+          <input
+            required
+            #name="ngModel"
+            type="text"
+            name="name"
+            [(ngModel)]="clientName"
+          />
         </div>
 
         <div>
           <label for="address"> Address </label>
-          <input type="text" name="address" [(ngModel)]="clientAddress" />
+          <input
+            type="email"
+            required
+            name="address"
+            #email="ngModel"
+            [(ngModel)]="clientAddress"
+            email
+          />
         </div>
 
         <button
           class="button"
-          [disabled]="!clientName && !clientAddress"
+          [disabled]="email.invalid || name.invalid"
           (click)="onSubmit()"
         >
           Purchase

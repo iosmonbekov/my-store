@@ -1,0 +1,38 @@
+<div class="add-product">
+  <h2>Add Product:</h2>
+  <form>
+    <div>
+      <label for="brand">Brand: </label>
+      <input type="text" name="brand" [(ngModel)]="product.brand" />
+    </div>
+    <div>
+      <label for="category">Category: </label>
+      <input type="text" name="category" [(ngModel)]="product.category" />
+    </div>
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" name="name" [(ngModel)]="product.name" />
+    </div>
+    <div>
+      <label for="image">Image URL: </label>
+      <input type="text" name="image" [(ngModel)]="product.image" />
+    </div>
+    <div>
+      <label for="price">Price$: </label>
+      <input type="number" name="price" [(ngModel)]="product.price" />
+    </div>
+
+    <button
+      [disabled]="
+        !product.brand ||
+        !product.image ||
+        !product.category ||
+        !product.name ||
+        !product.price
+      "
+      (click)="onSubmit()"
+    >
+      Add
+    </button>
+  </form>
+</div>
